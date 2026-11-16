@@ -1,0 +1,34 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Frecuencia de muestreo
+fs = 1000
+
+# Tiempo de 0 a 1 segundo
+t = np.linspace(0, 1, fs)
+
+# Señal de frecuencia 50 Hz
+senal1 = np.sin(2 * np.pi * 50 * t)
+
+# Señal de frecuencia 200 Hz
+senal2 = 0.5 * np.sin(2 * np.pi * 200 * t)
+
+# Señal compuesta
+senal = senal1 + senal2
+
+# Ruido aleatorio
+ruido = 0.3 * np.random.randn(len(t))
+
+# Señal con ruido
+senal_ruidosa = senal + ruido
+
+# Graficar
+plt.figure(figsize=(10,4))
+plt.plot(t, senal_ruidosa)
+
+plt.title("Señal compuesta con ruido")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Amplitud")
+plt.grid()
+
+plt.show()
